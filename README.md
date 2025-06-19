@@ -24,6 +24,24 @@ python main.py
 
 Send a POST request to `http://localhost:8080/chat` with a JSON body like `{"message": "hola"}` and you will get a simple echo reply.
 
+## WhatsApp Integration
+
+Set the following environment variables to enable sending WhatsApp messages using the [WhatsApp Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api):
+
+- `WHATSAPP_TOKEN` – your WhatsApp access token
+- `WHATSAPP_PHONE_ID` – the phone number ID associated with your Meta app
+
+Run the server and send a POST request to `/whatsapp` with a JSON body:
+
+```json
+{
+  "to": "<DESTINATION_PHONE_NUMBER>",
+  "message": "Hola desde la API"
+}
+```
+
+If the request succeeds, the server responds with `{"status": "sent"}`.
+
 ## Deploy to Google Cloud Run
 
 1. [Install the Google Cloud SDK](https://cloud.google.com/sdk) and authenticate:
